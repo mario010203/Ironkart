@@ -7,7 +7,7 @@ class Background {
     this.image.src = "./Img/Road_01_Tile_07.png";
     this.posX = 0;
     this.posY = 0;
-    this.vx = 2;
+    this.vy = 2;
   }
 
   draw() {
@@ -21,14 +21,15 @@ class Background {
     this.ctx.drawImage(
       this.image,
       this.posX,
-      this.posY + this.height,
+      this.posY - this.height,
       this.width,
       this.height
     );
   }
 
   move() {
-    this.posY -= this.vx;
-    if (this.posY <= -this.height) this.posY = 0;
+    this.posY += this.vy;
+
+    if (this.posY >= this.height) this.posY = 0;
   }
 }
