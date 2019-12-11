@@ -4,10 +4,11 @@ const Game = {
   width: undefined,
   height: undefined,
   fps: 60,
-  framesCounter: 0,
   playerKeys: {
-    TOP_KEY: 38,
-    SPACE: 32
+    LEFT: 37,
+    RIGHT: 39,
+    UP: 38,
+    DOWN: 40
   },
   //score: 0,
 
@@ -25,7 +26,6 @@ const Game = {
     this.reset();
     this.interval = setInterval(() => {
       this.framesCounter++;
-
       this.clear();
       this.drawAll();
       this.moveAll();

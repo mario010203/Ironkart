@@ -7,7 +7,7 @@ class Background {
     this.image.src = "./Img/Road_01_Tile_07.png";
     this.posX = 0;
     this.posY = 0;
-    this.vy = 2;
+    this.vy = 3;
   }
 
   draw() {
