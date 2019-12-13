@@ -4,7 +4,7 @@ const Game = {
   width: undefined,
   height: undefined,
   fps: 60,
-  playerKeys: {
+  CarKeys: {
     LEFT: 37,
     RIGHT: 39,
     UP: 38,
@@ -51,7 +51,7 @@ const Game = {
 
   drawAll: function() {
     this.Background.draw();
-    this.Car.draw(this.framesCounter);
+    this.Car.draw();
   },
 
   moveAll: function() {

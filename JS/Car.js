@@ -8,7 +8,8 @@ class Car {
     this.posX = 250;
     this.posY = 270;
     this.keys = keys;
-    this.setListeners();
+    //this.vy = 1;
+    this.vx = 0.1;
   }
 
   draw() {
@@ -22,20 +23,9 @@ class Car {
   }
 
   move() {
-    if (this.posX <= this.posX) {
-      this.posX += this.posX;
-    }
-  }
-
-  setListeners() {
     document.addEventListener("keydown", e => {
-      switch (e.keyCode) {
-        case this.keys.LEFT:
-          if (this.posX >= this.posX) {
-            this.posX += this.posX;
-          }
-
-          break;
+      if (e.keyCode == 37) {
+        this.posX -= this.vx;
       }
     });
   }
