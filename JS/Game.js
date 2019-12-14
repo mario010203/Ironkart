@@ -20,24 +20,15 @@ const Game = {
   start: function() {
     this.reset();
     this.interval = setInterval(() => {
-      this.framesCounter++;
       this.clear();
-      this.drawAll();
       this.moveAll();
+      this.drawAll();
     }, 1000 / this.fps);
   },
 
   reset: function() {
     this.Background = new Background(this.ctx, this.width, this.height);
-    this.Car = new Car(
-      this.ctx,
-      100,
-      200,
-      "./Img/Car_1_01.png",
-      this.width,
-      this.height,
-      this.playerKeys
-    );
+    this.car = new Car(this.ctx, 100, 200, "./Img/Car_1_01.png");
   },
 
   clear: function() {
@@ -46,12 +37,11 @@ const Game = {
 
   drawAll: function() {
     this.Background.draw();
-    this.Car.draw();
+    this.car.draw();
   },
 
   moveAll: function() {
     this.Background.move();
-    this.Car.move();
   },
 
   gameOver: function() {

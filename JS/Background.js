@@ -29,7 +29,6 @@ class Background {
 
   move() {
     this.posY += this.vy;
-
     if (this.posY >= this.height) this.posY = 0;
   }
 }
