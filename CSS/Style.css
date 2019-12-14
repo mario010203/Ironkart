@@ -1,3 +1,9 @@
 body {
   margin: 0px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../Img/pista-borrada-movimento-formato-horizontal-111891429.jpg");
+  background-size: cover;
 }

@@ -4,19 +4,14 @@ const Game = {
   width: undefined,
   height: undefined,
   fps: 60,
-  CarKeys: {
-    LEFT: 37,
-    RIGHT: 39,
-    UP: 38,
-    DOWN: 40
-  },
+
   //score: 0,
 
   init: function() {
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext("2d");
-    this.width = window.innerWidth;
-    this.height = window.innerHeight;
+    this.width = 650;
+    this.height = 650;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.start();
@@ -36,8 +31,8 @@ const Game = {
     this.Background = new Background(this.ctx, this.width, this.height);
     this.Car = new Car(
       this.ctx,
+      100,
       200,
-      400,
       "./Img/Car_1_01.png",
       this.width,
       this.height,
