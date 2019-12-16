@@ -4,7 +4,7 @@ const Game = {
   width: undefined,
   height: undefined,
   fps: 60,
-
+  framesCounter: 0,
   //score: 0,
 
   init: function() {
@@ -20,15 +20,22 @@ const Game = {
   start: function() {
     this.reset();
     this.interval = setInterval(() => {
+      this.framesCounter++;
       this.clear();
-      this.moveAll();
       this.drawAll();
+      this.moveAll();
+      this.clearObstacles();
+      if (this.framesCounter % 300 === 0) this.generateObstacles();
+      if (this.framesCounter % 100 === 0) this.score++;
+      if (this.framesCounter > 1000) this.framesCounter = 0;
     }, 1000 / this.fps);
   },
 
   reset: function() {
     this.Background = new Background(this.ctx, this.width, this.height);
     this.car = new Car(this.ctx, 100, 200, "./Img/Car_1_01.png");
+    this.obstacles = [];
+    //ScoreBoard.init(this.ctx, this.score);
   },
 
   clear: function() {
@@ -38,15 +45,22 @@ const Game = {
   drawAll: function() {
     this.Background.draw();
     this.car.draw();
+    this.obstacles.forEach(obstacle => obstacle.draw());
+    //ScoreBoard.draw(this.score);
   },
 
   moveAll: function() {
     this.Background.move();
+    this.obstacles.forEach(obstacle => obstacle.move());
   },
 
   gameOver: function() {
     clearInterval(this.interval);
-  }
+  },
+
+  generateObstacles: function() {
+    this.obstacles.push(new Obstacle(this.ctx, 15, 45));
+  },
 
   /* //isCollision: function() {
     // colisiones genéricas
@@ -58,9 +72,9 @@ const Game = {
         this.player.posY + this.player.height > obs.posY &&
         obs.posY + obs.height > this.player.posY
     );
-  },
+  },*/
 
   clearObstacles: function() {
-    this.obstacles = this.obstacles.filter(obstacle => obstacle.posX >= 0);
-  } */
+    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY >= 0);
+  }
 };
