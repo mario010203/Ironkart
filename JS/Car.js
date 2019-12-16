@@ -5,7 +5,7 @@ class Car {
     this.height = height;
     this.image = new Image();
     this.image.src = image;
-    //Initial car position
+    //Initial Car Position
     this.posX = 270;
     this.posY = 455;
     //Movement Position
@@ -26,15 +26,43 @@ class Car {
 
   setListeners() {
     document.addEventListener("keydown", e => {
-      if (e.keyCode == 37) {
-        this.posX -= this.vx;
-      } else if (e.keyCode == 39) {
-        this.posX += this.vx;
-      } else if (e.keyCode == 38) {
-        this.posY -= this.vy;
-      } else if (e.keyCode == 40) {
-        this.posY += this.vy;
+      //Keycode Left
+      if (e.keyCode == 37)
+        if (this.posX < 90) {
+          //Limit Left
+          this.posX -= this.vx - this.vx;
+        } else {
+          //Move Left
+          this.posX -= this.vx;
+        }
+      //Keycode Right
+      if (e.keyCode == 39) {
+        if (this.posX > 460) {
+          //Limit Right
+          this.posX += this.vx - this.vx;
+        } else {
+          //Move Right
+          this.posX += this.vx;
+        }
       }
+      //Keycode Up
+      if (e.keyCode == 38)
+        if (this.posY < 6) {
+          //Limit Up
+          this.posY -= this.vy - this.vx;
+        } else {
+          //Move Up
+          this.posY -= this.vy;
+        }
+
+      //Keycode Down
+      if (e.keyCode == 40)
+        if (this.posY > 450) {
+          //Limit Bottom
+          this.posY += this.vy - this.vx;
+        } else {
+          this.posY += this.vy;
+        }
     });
   }
 }
