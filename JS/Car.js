@@ -9,8 +9,8 @@ class Car {
     this.posX = 270;
     this.posY = 455;
     //Movement Position
-    this.vy = 10;
-    this.vx = 10;
+    this.vy = 15;
+    this.vx = 15;
     this.setListeners();
   }
 

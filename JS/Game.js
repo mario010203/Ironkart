@@ -5,7 +5,7 @@ const Game = {
   height: undefined,
   fps: 60,
   framesCounter: 0,
-  //score: 0,
+  score: 0,
 
   init: function() {
     this.canvas = document.getElementById("canvas");
@@ -35,7 +35,7 @@ const Game = {
     this.Background = new Background(this.ctx, this.width, this.height);
     this.car = new Car(this.ctx, 100, 200, "./Img/Car_1_01.png");
     this.obstacles = [];
-    //ScoreBoard.init(this.ctx, this.score);
+    ScoreBoard.init(this.ctx, this.score);
   },
 
   clear: function() {
@@ -46,7 +46,7 @@ const Game = {
     this.Background.draw();
     this.car.draw();
     this.obstacles.forEach(obstacle => obstacle.draw());
-    //ScoreBoard.draw(this.score);
+    ScoreBoard.draw(this.score);
   },
 
   moveAll: function() {
@@ -59,7 +59,7 @@ const Game = {
   },
 
   generateObstacles: function() {
-    this.obstacles.push(new Obstacle(this.ctx, 15, 45));
+    this.obstacles.push(new Obstacle(this.ctx, 100, 200, "./Img/Car_2_01.png"));
   },
 
   /* //isCollision: function() {
