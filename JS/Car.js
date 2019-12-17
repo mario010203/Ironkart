@@ -57,7 +57,7 @@ class Car {
 
       //Keycode Down
       if (e.keyCode == 40)
-        if (this.posY > 455) {
+        if (this.posY > window.innerHeight-210) {
           //Limit Bottom
           this.posY += this.vy - this.vx;
         } else {
