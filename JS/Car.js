@@ -7,7 +7,7 @@ class Car {
     this.image.src = image;
     //Initial Car Position
     this.posX = 270;
-    this.posY = 475;
+    this.posY = window.innerHeight-200;
     //Movement Position
     this.vy = 20;
     this.vx = 20;

@@ -12,7 +12,7 @@ const Game = {
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.width = 650;
-    this.height = 669;
+    this.height = window.innerHeight;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.start();

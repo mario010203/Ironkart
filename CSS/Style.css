@@ -4,6 +4,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../Img/buildings.jpg");
+  background: url("../Img/lights.gif");
   background-size: cover;
 }
