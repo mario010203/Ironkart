@@ -6,17 +6,21 @@ const Game = {
   fps: 60,
   framesCounter: 0,
   score: 0,
+  policeArray: [],
 
   init: function() {
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.width = 650;
-    this.height = 650;
+    this.height = 669;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.start();
+    this.playMusic();
   },
-
+  playMusic() {
+    document.getElementById("background").play();
+  },
   start: function() {
     this.reset();
     this.interval = setInterval(() => {
@@ -25,8 +29,10 @@ const Game = {
       this.drawAll();
       this.moveAll();
       this.clearObstacles();
-      if (this.framesCounter % 300 === 0) this.generateObstacles();
+
+      if (this.framesCounter % 250 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
+
       if (this.framesCounter > 1000) this.framesCounter = 0;
     }, 1000 / this.fps);
   },
@@ -62,19 +68,20 @@ const Game = {
     this.obstacles.push(new Obstacle(this.ctx, 100, 200, "./Img/Car_2_01.png"));
   },
 
-  /* //isCollision: function() {
-    // colisiones genéricas
-    // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
-    return this.obstacles.some(
-      obs =>
-        this.player.posX + this.player.width > obs.posX &&
-        obs.posX + obs.width > this.player.posX &&
-        this.player.posY + this.player.height > obs.posY &&
-        obs.posY + obs.height > this.player.posY
-    );
-  },*/
+  isCollision: function() {
+    this.policeArray.forEach(check => {
+      if (
+        this.Car + this.Car.width >= check.x &&
+        this.Car <= check.x + check.width &&
+        this.Car + this.theCar.height >= check.y &&
+        this.Car <= check.y + check.height
+      ) {
+        console.log("hi"), this.gameOver();
+      }
+    });
+  },
 
   clearObstacles: function() {
-    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY >= 0);
+    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY <= 700);
   }
 };
