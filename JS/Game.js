@@ -32,7 +32,6 @@ const Game = {
 
       if (this.framesCounter % 250 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
-
       if (this.framesCounter > 1000) this.framesCounter = 0;
     }, 1000 / this.fps);
   },
@@ -82,6 +81,6 @@ const Game = {
   },
 
   clearObstacles: function() {
-    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY <= 700);
+    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY <= window.innerHeight);
   }
 };
