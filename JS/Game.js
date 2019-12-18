@@ -65,8 +65,11 @@ const Game = {
   },
 
   gameOver: function() {
-    clearInterval(this.interval);
+    
+    this.car.image.src = "./Img/Car_1_05.png";
     this.stopMusic();
+    setTimeout(clearInterval(this.interval), 1000)
+    
   },
 
   generateObstacles: function() {
