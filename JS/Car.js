@@ -7,11 +7,15 @@ class Car {
     this.image.src = image;
     //Initial Car Position
     this.posX = 270;
-    this.posY = window.innerHeight-200;
+    this.posY = window.innerHeight - 200;
     //Movement Position
     this.vy = 20;
     this.vx = 20;
+    //movement
     this.setListeners();
+  }
+  tireSound() {
+    document.getElementById("tire-sound").play();
   }
 
   draw() {
@@ -25,9 +29,11 @@ class Car {
   }
 
   setListeners() {
+    let that = this;
     document.addEventListener("keydown", e => {
       //Keycode Left
-      if (e.keyCode == 37)
+      if (e.keyCode == 37) {
+        that.tireSound();
         if (this.posX < 10) {
           //Limit Left
           this.posX -= this.vx - this.vx;
@@ -35,8 +41,10 @@ class Car {
           //Move Left
           this.posX -= this.vx;
         }
+      }
       //Keycode Right
       if (e.keyCode == 39) {
+        that.tireSound();
         if (this.posX > 549) {
           //Limit Right
           this.posX += this.vx - this.vx;
@@ -45,6 +53,7 @@ class Car {
           this.posX += this.vx;
         }
       }
+
       //Keycode Up
       if (e.keyCode == 38)
         if (this.posY < 10) {
@@ -57,7 +66,7 @@ class Car {
 
       //Keycode Down
       if (e.keyCode == 40)
-        if (this.posY > window.innerHeight-210) {
+        if (this.posY > window.innerHeight - 210) {
           //Limit Bottom
           this.posY += this.vy - this.vx;
         } else {

@@ -16,14 +16,14 @@ const Game = {
     this.canvas.height = this.height;
     this.start();
     this.playMusic();
-    this.stopMusic();
   },
   playMusic() {
-    document.getElementById("background").play();
+    document.getElementById("background-sound").play();
   },
   stopMusic() {
-    document.getElementById("background").stop();
+    document.getElementById("background-sound").pause();
   },
+
   start: function() {
     this.reset();
     this.interval = setInterval(() => {
@@ -32,7 +32,9 @@ const Game = {
       this.drawAll();
       this.moveAll();
       this.clearObstacles();
-      if(this.isCollision()) this.gameOver() && this.stopMusic();
+      if (this.isCollision()) {
+        this.gameOver();
+      }
       if (this.framesCounter % 250 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
       if (this.framesCounter > 1000) this.framesCounter = 0;
@@ -64,6 +66,7 @@ const Game = {
 
   gameOver: function() {
     clearInterval(this.interval);
+    this.stopMusic();
   },
 
   generateObstacles: function() {
@@ -71,16 +74,18 @@ const Game = {
   },
 
   isCollision: function() {
-    return this.obstacles.some(obs => (this.car.posX + this.car.width > obs.posX && obs.posX + obs.width > this.car.posX && this.car.posY + this.car.height > obs.posY && obs.posY + obs.height > this.car.posY ))
-
-      
+    return this.obstacles.some(
+      obs =>
+        this.car.posX + this.car.width > obs.posX &&
+        obs.posX + obs.width > this.car.posX &&
+        this.car.posY + this.car.height > obs.posY &&
+        obs.posY + obs.height > this.car.posY
+    );
   },
 
   clearObstacles: function() {
-        this.obstacles = this.obstacles.filter(
+    this.obstacles = this.obstacles.filter(
       obstacle => obstacle.posY <= window.innerHeight
-     
     );
-    
   }
 };
