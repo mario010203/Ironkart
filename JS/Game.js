@@ -81,6 +81,8 @@ const Game = {
   },
 
   clearObstacles: function() {
-    this.obstacles = this.obstacles.filter(obstacle => obstacle.posY <= window.innerHeight);
+    this.obstacles = this.obstacles.filter(
+      obstacle => obstacle.posY <= window.innerHeight
+    );
   }
 };
