@@ -6,7 +6,7 @@ const Game = {
   fps: 60,
   framesCounter: 0,
   score: 0,
-  policeArray: [],
+  
 
   init: function() {
     this.canvas = document.getElementById("canvas");
@@ -68,16 +68,16 @@ const Game = {
   },
 
   isCollision: function() {
-    this.policeArray.forEach(check => {
+    
       if (
         this.Car + this.Car.width >= check.x &&
         this.Car <= check.x + check.width &&
         this.Car + this.theCar.height >= check.y &&
         this.Car <= check.y + check.height
       ) {
-        console.log("hi"), this.gameOver();
+      this.gameOver();
       }
-    });
+    
   },
 
   clearObstacles: function() {
