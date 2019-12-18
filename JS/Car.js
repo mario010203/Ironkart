@@ -47,7 +47,7 @@ class Car {
       }
       //Keycode Up
       if (e.keyCode == 38)
-        if (this.posY < 6) {
+        if (this.posY < 10) {
           //Limit Up
           this.posY -= this.vy - this.vx;
         } else {

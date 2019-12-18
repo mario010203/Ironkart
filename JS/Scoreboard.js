@@ -8,8 +8,8 @@ const ScoreBoard = {
   },
 
   draw: function(score) {
-    this.ctx.fillStyle = "black";
-    this.ctx.font = "40px sans-serif";
-    this.ctx.fillText(score, 50, 50);
+    this.ctx.fillStyle = "#049CD8";
+    this.ctx.font = " bold 70px Orbitron";
+    this.ctx.fillText(score, 10, 60);
   }
 };
