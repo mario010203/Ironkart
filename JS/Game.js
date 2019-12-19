@@ -33,7 +33,9 @@ const Game = {
       this.moveAll();
       this.clearObstacles();
       if (this.isCollision()) {
-        this.gameOver();
+        
+        this.gameOver()
+        
       }
       if (this.framesCounter % 250 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
@@ -63,17 +65,24 @@ const Game = {
     this.Background.move();
     this.obstacles.forEach(obstacle => obstacle.move());
   },
+  crashSound() {
+    document.getElementById("crash").play();
+  },
 
   gameOver: function() {
-    
     this.car.image.src = "./Img/Car_1_05.png";
-    this.stopMusic();
-    setTimeout(clearInterval(this.interval), 1000)
+    this.crashSound();
+    this.stopMusic();    
+    setTimeout(() => { clearInterval(this.interval);},90) ;
     
+  },
+  policeSound() {
+    document.getElementById("police").play();
   },
 
   generateObstacles: function() {
     this.obstacles.push(new Obstacle(this.ctx, 100, 200, "./Img/Car_2_01.png"));
+    this.policeSound();
   },
 
   isCollision: function() {

@@ -33,7 +33,6 @@ class Car {
     document.addEventListener("keydown", e => {
       //Keycode Left
       if (e.keyCode == 37) {
-        that.tireSound();
         if (this.posX < 10) {
           //Limit Left
           this.posX -= this.vx - this.vx;
@@ -44,7 +43,6 @@ class Car {
       }
       //Keycode Right
       if (e.keyCode == 39) {
-        that.tireSound();
         if (this.posX > 549) {
           //Limit Right
           this.posX += this.vx - this.vx;
@@ -65,13 +63,15 @@ class Car {
         }
 
       //Keycode Down
-      if (e.keyCode == 40)
+      if (e.keyCode == 40) {
+        that.tireSound();
         if (this.posY > window.innerHeight - 210) {
           //Limit Bottom
           this.posY += this.vy - this.vx;
         } else {
           this.posY += this.vy;
         }
+      }
     });
   }
 }
