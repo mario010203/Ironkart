@@ -52,7 +52,8 @@ nav {
   width: 100px;
 }
 
-#start-button {
+#start-button,
+#button-restart {
   text-align: center;
   display: inline-block;
   margin: 10px;
@@ -89,6 +90,21 @@ p {
   margin: 10px;
 }
 
+h2 {
+  font-family: "Press Start 2P", cursive;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: black;
+  font-size: 26px;
+  margin: 10px;
+}
+
 .buttons-image {
   margin: 90px;
+}
+#game-over {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

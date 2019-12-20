@@ -71,6 +71,9 @@ const Game = {
     this.car.image.src = "./Img/Car_1_05.png";
     this.crashSound();
     this.stopMusic();
+    document.querySelector("#score").innerHTML = this.score;
+    document.querySelector("#game-over").style.display = "flex";
+
     setTimeout(() => {
       clearInterval(this.interval);
     }, 100);
