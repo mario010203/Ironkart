@@ -35,6 +35,8 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin: 10px;
+  margin-bottom: 50px;
 }
 
 .y-direction {
@@ -42,12 +44,18 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 10px;
+}
+
+.play {
+  margin: 10px;
+  width: 100px;
 }
 
 #start-button {
   text-align: center;
   display: inline-block;
-  margin: 5px;
+  margin: 10px;
   font-weight: bold;
   padding: 20px;
   background-color: lightgray;
@@ -72,4 +80,15 @@ start-btn:active {
 }
 canvas {
   display: none;
+}
+p {
+  font-family: "Press Start 2P", cursive;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.buttons-image {
+  margin: 90px;
 }
