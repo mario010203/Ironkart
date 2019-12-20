@@ -33,9 +33,7 @@ const Game = {
       this.moveAll();
       this.clearObstacles();
       if (this.isCollision()) {
-        
-        this.gameOver()
-        
+        this.gameOver();
       }
       if (this.framesCounter % 250 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
@@ -72,9 +70,10 @@ const Game = {
   gameOver: function() {
     this.car.image.src = "./Img/Car_1_05.png";
     this.crashSound();
-    this.stopMusic();    
-    setTimeout(() => { clearInterval(this.interval);},90) ;
-    
+    this.stopMusic();
+    setTimeout(() => {
+      clearInterval(this.interval);
+    }, 100);
   },
   policeSound() {
     document.getElementById("police").play();
