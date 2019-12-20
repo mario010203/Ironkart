@@ -8,6 +8,7 @@ const Game = {
   score: 0,
 
   init: function() {
+    this.score = 0;
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.width = 650;
@@ -15,8 +16,18 @@ const Game = {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.start();
-    this.playMusic();
+    this.hornMusic();
   },
+  hornMusic() {
+    document
+      .getElementById("horn-sound")
+      .addEventListener("ended", () => this.playMusic());
+    this.playHornMusic();
+  },
+  playHornMusic() {
+    document.getElementById("horn-sound").play();
+  },
+
   playMusic() {
     document.getElementById("background-sound").play();
   },
