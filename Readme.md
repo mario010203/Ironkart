@@ -2,6 +2,10 @@
 
 This a typical car race game
 
+To play just click in the following link:
+
+https://mario010203.github.io/Ironkart/
+
 ## Getting Started
 
 In order to get a copy of this game for test and improvement just fork the repository
